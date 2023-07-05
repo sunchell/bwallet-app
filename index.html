@@ -33,15 +33,20 @@
 			
 			let tg = window.Telegram.WebApp;
 			
-			tg.MainButton.text = 'Зберегти'; 
+			tg.MainButton.text = 'Рендер'; 
 			tg.MainButton.show()
 			
+			let btn_status;
+			let output;
+			
 			Telegram.WebApp.onEvent('mainButtonClicked', () => {
-				/*const output = new Promise((resolve) => {
-					c.toDataURL(resolve);
-				});
-				tg.sendData({ output })*/
-				tg.sendData('1');
+				if(btn_status !== 'to_save') {
+					output = c.toDataURL
+					
+					tg.MainButton.setText = 'Зберегти';
+				} else {
+					tg.sendData({ output })
+				}
 			});
 		</script>
 	</body>
