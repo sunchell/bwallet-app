@@ -24,7 +24,7 @@
 			
 			const gradient = ctx.createRadialGradient(100, 100, 50, 100, 100, 100);
 				gradient.addColorStop(0, 'red');
-				gradient.addColorStop(1, 'white');
+				gradient.addColorStop(1, 'green');
 			
 			ctx.fillStyle = gradient;
 			ctx.fillRect(0, 0, 200, 200);
@@ -37,7 +37,9 @@
 			tg.MainButton.show()
 			
 			Telegram.WebApp.onEvent('mainButtonClicked', () => {
-				tg.sendData(c.toDataURL())
+				//tg.sendData(c.toDataURL())
+				alert(1);
+				tg.close()
 			});
 		</script>
 	</body>
