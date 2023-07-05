@@ -1,17 +1,44 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>BWallet</title>
+		<title>Avagen</title>
 		<script src="https://telegram.org/js/telegram-web-app.js"></script>
+		<style>
+			#canvas {
+				width: 200px;
+				height: 200px;
+				border: 1px solid black;
+				left: 0;
+				right: 0;
+				margin: auto;
+				position: absolute;
+			}
+		</style>
 	</head>
 	<body>
+		<canvas id="canvas" width="200px" height="200px"></canvas>
+		
 		<script>
+			const c = document.querySelector('#canvas');
+			const ctx = c.getContext('2d');
+			
+			const gradient = ctx.createRadialGradient(100, 100, 50, 100, 100, 100);
+				gradient.addColorStop(0, 'red');
+				gradient.addColorStop(1, 'white');
+			
+			ctx.fillStyle = gradient;
+			ctx.fillRect(0, 0, 200, 200);
+			
+			//Telegram Web App
+			
 			let tg = window.Telegram.WebApp;
 			
-			tg.MainButton.text = "Close app"; 
-			tg.MainButton.textColor = "#F55353";
-			tg.MainButton.color = "#143F6B";
+			tg.MainButton.text = 'Зберегти'; 
 			tg.MainButton.show()
+			
+			tg.MainButton.onClick(() => {
+				tg.sendData({ image: c.toDataURL() })
+			});
 		</script>
 	</body>
 </html>
