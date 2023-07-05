@@ -37,9 +37,9 @@
 			tg.MainButton.show()
 			
 			Telegram.WebApp.onEvent('mainButtonClicked', () => {
-				//tg.sendData(c.toDataURL())
-				alert(1);
-				tg.close()
+				tg.sendData('Hello world!')
+				/*alert(1);
+				tg.close()*/
 			});
 		</script>
 	</body>
