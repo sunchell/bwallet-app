@@ -37,14 +37,11 @@
 			tg.MainButton.show()
 			
 			Telegram.WebApp.onEvent('mainButtonClicked', () => {
-				sendOutput()
+				const output = await new Promise((resolve) => {
+					c.toDataURL(resolve);
+				});
+				tg.sendData({ output })
 			});
-			
-			async function sendOutput() {
-				const output = await c.toDataURL();
-				
-				await tg.sendData({ output })
-			};
 		</script>
 	</body>
 </html>
