@@ -43,7 +43,8 @@
 				if(btn_status !== 'to_save') {
 					output = c.toDataURL
 					
-					tg.MainButton.setText = 'Зберегти';
+					tg.MainButton.color = '#31B545';
+					tg.MainButton.setText('Зберегти');
 				} else {
 					tg.sendData({ output })
 				}
